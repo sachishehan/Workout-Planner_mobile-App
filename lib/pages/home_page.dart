@@ -4,6 +4,7 @@ import 'package:intl/intl.dart';
 import 'package:workout_plan/constants/colors.dart';
 import 'package:workout_plan/constants/responsive.dart';
 import 'package:workout_plan/data/user_data.dart';
+import 'package:workout_plan/widgets/exercise_card.dart';
 import 'package:workout_plan/widgets/pogress_card.dart';
 
 class HomePage extends StatefulWidget {
@@ -58,6 +59,51 @@ class _HomePageState extends State<HomePage> {
                   ProgressCard(
                     progressValue: 0.6,
                     total: 100,
+                  ),
+                  SizedBox(
+                    height: 10,
+                  ),
+                  Text("Today's Activity",
+                  style: TextStyle(
+                    fontSize: 18,
+                    fontWeight: FontWeight.bold,
+                  ),
+                  ),
+                   SizedBox(
+                    height: 10,
+                  ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      ExerciseCard(
+                        description: "See more..",
+                        imageUrl: "assests/images/exercises/cobra.png",
+                        title: "Warmup",
+                      ),
+                      ExerciseCard(
+                        description: "See more..",
+                        imageUrl: "assests/images/equipments/dumbbells2.png",
+                        title: "Equipments",
+                      ),
+                    ],
+                  ),
+                  SizedBox(
+                    height: 10,
+                  ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      ExerciseCard(
+                        description: "See more..",
+                        imageUrl: "assests/images/exercises/triangle.png",
+                        title: "Exercise",
+                      ),
+                      ExerciseCard(
+                        description: "See more..",
+                        imageUrl: "assests/images/exercises/yoga.png",
+                        title: "Stretching",
+                      ),
+                    ],
                   ),
                 ],
               ),
