@@ -6,6 +6,7 @@ import 'package:workout_plan/constants/responsive.dart';
 import 'package:workout_plan/data/equipment_data.dart';
 import 'package:workout_plan/data/exercise_data.dart';
 import 'package:workout_plan/data/user_data.dart';
+import 'package:workout_plan/pages/equipment_page.dart';
 import 'package:workout_plan/pages/exercise_details_page.dart';
 import 'package:workout_plan/widgets/exercise_card.dart';
 import 'package:workout_plan/widgets/pogress_card.dart';
@@ -99,10 +100,22 @@ class _HomePageState extends State<HomePage> {
                           title: "Warmup",
                         ),
                       ),
-                      ExerciseCard(
-                        description: "See more..",
-                        imageUrl: "assests/images/equipments/dumbbells2.png",
-                        title: "Equipments",
+                      GestureDetector(
+                        onTap: () {
+                          Navigator.push(context, MaterialPageRoute(builder: (context)=>
+                          EquipmentDetailsPage(
+                            equipmentTitle: "Equipment", 
+                            quipmentDescription: "Warmup is a method of preparing the body for exercise or sports by increasing the heart rate and warming the muscles. It is a simple exercise that helps to increase the blood flow to the muscles and prepare them for physical activity.", 
+                            equipmentList: equipmentList
+                            ),
+                            ),
+                          );
+                        },
+                        child: ExerciseCard(
+                          description: "See more..",
+                          imageUrl: "assests/images/equipments/dumbbells2.png",
+                          title: "Equipments",
+                        ),
                       ),
                     ],
                   ),
