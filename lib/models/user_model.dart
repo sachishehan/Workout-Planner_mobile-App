@@ -31,4 +31,28 @@ class User{
   }
 
   );
+
+  //methods
+
+  //methode to add new exercise to the exerciseList
+  void addExercise(Exercise exercise){
+    exerciseList.add(exercise);
+  }
+
+  //method to remove a exercise from the exercise list
+  void removeExercise(Exercise exercise){
+    exerciseList.remove(exercise);
+  }
+
+  //method to add new favourite exercise to the fav exercoise list
+  void addFavExercise(Exercise exercise){
+    favExerciseList.add(exercise);
+  }
+
+  //method to remove a from favExercise
+  void removeFavExercise(Exercise exercise){
+    favExerciseList.remove(exercise);
+  }
+
+
 }

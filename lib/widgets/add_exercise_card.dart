@@ -7,11 +7,20 @@ class AddExerciseCard extends StatefulWidget {
   final String exerciseTitle;
   final String exerciseImageUrl;
   final int noOfMinutes;
+  final bool isadded;
+  final bool isFavourtied;
+  final void Function() toggleAddExercise;
+  final void Function() toggleAddFavExercise;
   const AddExerciseCard({
     super.key, 
     required this.exerciseTitle,  
     required this.noOfMinutes, 
-    required this.exerciseImageUrl});
+    required this.exerciseImageUrl, 
+    required this.toggleAddExercise, 
+    required this.isadded, 
+    required this.toggleAddFavExercise,
+    required this.isFavourtied, 
+    });
 
   @override
   State<AddExerciseCard> createState() => _AddExerciseCardState();
@@ -83,10 +92,15 @@ class _AddExerciseCardState extends State<AddExerciseCard> {
                     color: kSubtitleColor.withOpacity(0.5),
                   ),
                   child: Center(
-                    child: Icon(
-                      Icons.add,
-                      size: 30,
-                      color: kMainDarkBlueColor,
+                    child: IconButton(
+                      onPressed: () {
+                        widget.toggleAddExercise();
+                      },
+                      icon: Icon(
+                        widget.isadded ? Icons.remove : Icons.add,
+                        size: 30,
+                        color: kMainDarkBlueColor,
+                      ),
                     ),
                   ),
                 ),
@@ -98,10 +112,15 @@ class _AddExerciseCardState extends State<AddExerciseCard> {
                     color: kSubtitleColor.withOpacity(0.5),
                   ),
                   child: Center(
-                    child: Icon(
-                      Icons.favorite_border,
-                      size: 30,
-                      color: kMainPinkColor,
+                    child: IconButton(
+                      onPressed: () {
+                        widget.toggleAddFavExercise();
+                      },
+                      icon: Icon(
+                        widget.isFavourtied ? Icons.favorite : Icons.favorite_border,
+                        size: 30,
+                        color: kMainPinkColor,
+                      ),
                     ),
                   ),
                 ),
