@@ -82,7 +82,7 @@ class _EquipmentDetailsPageState extends State<EquipmentDetailsPage> {
                 itemCount: widget.equipmentList.length,
                 itemBuilder: (context, index){
                   Equipment equipment = widget.equipmentList[index];
-                  return EquipmnetCard(
+                  return AddEquipmentCard(
                     equipmentName: equipment.equipmentName, 
                     equipmentDescription: equipment.equipmentDescription, 
                     equipmentImageUrl: equipment.equipmentImageUrl, 

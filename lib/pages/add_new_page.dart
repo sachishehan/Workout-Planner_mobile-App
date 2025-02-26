@@ -5,6 +5,7 @@ import 'package:workout_plan/data/exercise_data.dart';
 import 'package:workout_plan/data/user_data.dart';
 import 'package:workout_plan/models/exercise_model.dart';
 import 'package:workout_plan/widgets/add_exercise_card.dart';
+import 'package:workout_plan/widgets/equipmnet_card.dart';
 
 class AddNewPage extends StatefulWidget {
   const AddNewPage({super.key});
@@ -104,7 +105,22 @@ class _AddNewPageState extends State<AddNewPage> {
                              },   
                             );
                         }),
-                    )
+                    ),
+                    SizedBox(
+                      height:15,
+                    ),
+                    Text(
+                    "All Equipment",
+                    style: TextStyle(
+                      fontSize: 20,
+                      fontWeight: FontWeight.w700,
+                      color: kMainBlackColor,
+                    ),
+                  ),
+                  SizedBox(
+                      height:15,
+                    ),
+                    AddEquipmentCard()
                 ],
               ),
             ),

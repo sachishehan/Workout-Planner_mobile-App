@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:workout_plan/constants/colors.dart';
 
-class EquipmnetCard extends StatelessWidget {
+class AddEquipmentCard extends StatelessWidget {
   final String equipmentName;
   final String equipmentDescription;
   final String equipmentImageUrl;
   final int noOfMinutes;
   final double noOfCalories;
-  const EquipmnetCard({
+  const AddEquipmentCard({
     super.key, 
     required this.equipmentName, 
     required this.equipmentDescription, 
