@@ -1,11 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:workout_plan/constants/colors.dart';
 import 'package:workout_plan/constants/responsive.dart';
+import 'package:workout_plan/data/equipment_data.dart';
 import 'package:workout_plan/data/exercise_data.dart';
 import 'package:workout_plan/data/user_data.dart';
+import 'package:workout_plan/models/equipmnet_model.dart';
 import 'package:workout_plan/models/exercise_model.dart';
 import 'package:workout_plan/widgets/add_exercise_card.dart';
 import 'package:workout_plan/widgets/equipmnet_card.dart';
+import 'package:workout_plan/widgets/add_equipment_card.dart';
 
 class AddNewPage extends StatefulWidget {
   const AddNewPage({super.key});
@@ -23,7 +26,10 @@ class _AddNewPageState extends State<AddNewPage> {
   // final allEquipments = EquipmentData().equipmentList;
   @override
   Widget build(BuildContext context) {
-    var userData2 = userData;
+    final userData2 = userData;
+    final equipmentList = EquipmentData().equipmentList;
+    final exerciseList = ExerciseData().ExerciseList;
+
     return  Scaffold(
       body: SafeArea(
         child: SingleChildScrollView(
@@ -120,7 +126,21 @@ class _AddNewPageState extends State<AddNewPage> {
                   SizedBox(
                       height:15,
                     ),
-                    AddEquipmentCard()
+                  
+                  //list view the scrolls vertically
+                  SizedBox(
+                    height: MediaQuery.of(context).size.height * 0.5,
+                    child: ListView.builder(itemBuilder: (context , index){
+                      Equipment equipment = equipmentList[index];
+
+                      return AddEquipmentCard(
+                        equipmentName: equipment.equipmentName, 
+                        equipmentImageUrl: equipment.equipmentImageUrl, 
+                        noOfMinutes: equipment.noOfMinutes, 
+                        noOfCalories: equipment.noOfCalories, 
+                        equipmentDescription: equipment.equipmentDescription);
+                    }),
+                  )
                 ],
               ),
             ),
