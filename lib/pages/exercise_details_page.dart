@@ -2,96 +2,128 @@ import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:workout_plan/constants/colors.dart';
 import 'package:workout_plan/constants/responsive.dart';
+import 'package:workout_plan/models/equipmnet_model.dart';
 import 'package:workout_plan/models/exercise_model.dart';
 import 'package:workout_plan/widgets/exercise_card.dart';
 
-class ExerciseDetailsPage extends StatefulWidget {
+class ExerciseLayout extends StatefulWidget {
+  final String title;
+  final String description;
+  final List<Exercise> exercises;
+  final List<Equipment> equipments;
+  final bool showEquipment;
 
-  final String exerciseTitle;
-  final String exerciseDescription;
-  final List<Exercise>exerciseList;
-
-  const ExerciseDetailsPage({
-    super.key, 
-    required this.exerciseTitle, 
-    required this.exerciseDescription, 
-    required this.exerciseList
-    });
+  const ExerciseLayout({
+    Key? key,
+    required this.title,
+    required this.description,
+    required this.exercises,
+    required this.equipments,
+    required this.showEquipment,
+  }) : super(key: key);
 
   @override
-  State<ExerciseDetailsPage> createState() => _ExerciseDetailsPageState();
+  State<ExerciseLayout> createState() => _ExerciseLayoutState();
 }
 
-class _ExerciseDetailsPageState extends State<ExerciseDetailsPage> {
-  //date and time formatters
-  final DateFormat formetter = DateFormat('EEEE , MMMM');
-  final DateFormat dayFormat = DateFormat('dd');
+class _ExerciseLayoutState extends State<ExerciseLayout> {
+  final DateFormat formatter = DateFormat('EEEE, MMMM');
+
+  final DateFormat dayFormatter = DateFormat('dd');
+
   @override
   Widget build(BuildContext context) {
-    DateTime now =DateTime.now();
-    String formattedDate = formetter.format(now);
-    String fomattedDay = dayFormat.format(now);
+    DateTime now = DateTime.now();
+    String formattedDate = formatter.format(now);
     return Scaffold(
       appBar: AppBar(
+        backgroundColor: Colors.transparent,
         title: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Text(" $formattedDate  $fomattedDay",
-                  style: TextStyle(
-                    fontSize: 15,
-                    fontWeight: FontWeight.w500,
-                    color :kSubtitleColor,
-                    ),
-                  ),
-                  Text(
-                  widget.exerciseTitle,
-                  style: TextStyle(
-                    fontSize: 20,
-                    fontWeight: FontWeight.w700,
-                    color :kMainBlackColor,
-                    ),
-                  ),
+            Text(
+              formattedDate.toUpperCase(),
+              style: const TextStyle(
+                fontSize: 15,
+                fontWeight: FontWeight.w500,
+                color: kSubtitleColor,
+              ),
+            ),
+            Text(
+              widget.title,
+              style: const TextStyle(
+                fontSize: 25,
+                fontWeight: FontWeight.w700,
+                color: kMainColor,
+              ),
+            ),
           ],
         ),
       ),
       body: SingleChildScrollView(
-        child: Padding(
-          padding: const EdgeInsets.all(kDefaultPadding),
-          child: Column(
-            children: [
-              Text(
-                    widget.exerciseDescription,
-                    style: TextStyle(
-                      fontSize: 15,
-                      fontWeight: FontWeight.normal,
-                      color :kMainBlackColor,
-                    ),
+        child: SafeArea(
+          child: Padding(
+            padding: const EdgeInsets.all(kDefaultPadding),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                const SizedBox(
+                  height: 10,
+                ),
+                Text(
+                  widget.description,
+                  style: const TextStyle(
+                    fontSize: 15,
+                    fontWeight: FontWeight.w500,
+                    color: kMainColor,
                   ),
-                  SizedBox(
-                    height: 20,
-                  ),
-
-                  //gridview
+                ),
+                const SizedBox(
+                  height: 20,
+                ),
+                if (!widget.showEquipment)
                   GridView.builder(
-
                     shrinkWrap: true,
-                    physics: NeverScrollableScrollPhysics(),
-                    gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                    physics: const NeverScrollableScrollPhysics(),
+                    gridDelegate:
+                        const SliverGridDelegateWithFixedCrossAxisCount(
                       crossAxisCount: 2,
                       crossAxisSpacing: kDefaultPadding,
-                      mainAxisSpacing:kDefaultPadding,
-                      ),
-                      itemCount: widget.exerciseList.length, 
-                    itemBuilder: (context,index){
-                      Exercise exercise = widget.exerciseList[index];
+                      mainAxisSpacing: kDefaultPadding,
+                    ),
+                    itemCount: widget.exercises.length,
+                    itemBuilder: (context, index) {
+                      Exercise exercise = widget.exercises[index];
                       return ExerciseCard(
-                        title: exercise.exerciseName, 
-                        imageUrl: exercise.exerciseImageUrl, 
-                        description: "${exercise.noOfMinutes} of Workout"
+                        title: exercise.exerciseName,
+                        image: exercise.exerciseImageUrl,
+                        noOfMinutes: exercise.noOfMinuites.toString(),
+                        showMore: false,
                       );
                     },
                   ),
-            ],
+                if (widget.showEquipment)
+                  GridView.builder(
+                    shrinkWrap: true,
+                    physics: const NeverScrollableScrollPhysics(),
+                    gridDelegate:
+                        const SliverGridDelegateWithFixedCrossAxisCount(
+                      crossAxisCount: 2,
+                      crossAxisSpacing: kDefaultPadding,
+                      mainAxisSpacing: kDefaultPadding,
+                    ),
+                    itemCount: widget.equipments.length,
+                    itemBuilder: (context, index) {
+                      Equipment equipment = widget.equipments[index];
+                      return ExerciseCard(
+                        title: equipment.equipmentName,
+                        image: equipment.equipmentImageUrl,
+                        noOfMinutes: equipment.noOfMinuites.toString(),
+                        showMore: false,
+                      );
+                    },
+                  ),
+              ],
+            ),
           ),
         ),
       ),

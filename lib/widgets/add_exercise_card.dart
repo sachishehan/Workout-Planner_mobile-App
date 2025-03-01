@@ -1,26 +1,27 @@
 import 'package:flutter/material.dart';
 import 'package:workout_plan/constants/colors.dart';
-import 'package:workout_plan/constants/responsive.dart';
 
 class AddExerciseCard extends StatefulWidget {
-
-  final String exerciseTitle;
-  final String exerciseImageUrl;
-  final int noOfMinutes;
-  final bool isadded;
-  final bool isFavourtied;
+  final String title;
+  final String image;
+  final String noOfMinutes;
+  final bool showMore;
+  final bool isAdded;
+  final bool isFavorite;
   final void Function() toggleAddExercise;
-  final void Function() toggleAddFavExercise;
+  final void Function() toggleAddFavoriteExercise;
+
   const AddExerciseCard({
-    super.key, 
-    required this.exerciseTitle,  
-    required this.noOfMinutes, 
-    required this.exerciseImageUrl, 
-    required this.toggleAddExercise, 
-    required this.isadded, 
-    required this.toggleAddFavExercise,
-    required this.isFavourtied, 
-    });
+    super.key,
+    required this.title,
+    required this.image,
+    required this.noOfMinutes,
+    required this.showMore,
+    required this.toggleAddExercise,
+    required this.toggleAddFavoriteExercise,
+    required this.isAdded,
+    required this.isFavorite,
+  });
 
   @override
   State<AddExerciseCard> createState() => _AddExerciseCardState();
@@ -31,56 +32,67 @@ class _AddExerciseCardState extends State<AddExerciseCard> {
   Widget build(BuildContext context) {
     return Container(
       width: 200,
-      margin: EdgeInsets.only(right: 15),
+      margin: const EdgeInsets.only(right: 10),
       decoration: BoxDecoration(
-        color: kCardBgColor,
-        borderRadius: BorderRadius.circular(20),
-        boxShadow: [
+        color: kCardBackgroundColor,
+        borderRadius: BorderRadius.circular(15),
+        boxShadow: const [
           BoxShadow(
             color: Colors.black12,
             offset: Offset(0, 2),
             blurRadius: 2,
           ),
-        ]
+        ],
       ),
-      child: Padding(
-        padding: const EdgeInsets.all(kDefaultPadding),
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: [
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: [
+          const SizedBox(
+            height: 10,
+          ),
+          Text(
+            widget.title,
+            style: const TextStyle(
+              fontSize: 18,
+              fontWeight: FontWeight.bold,
+            ),
+          ),
+          const SizedBox(
+            height: 5,
+          ),
+          ClipRRect(
+            borderRadius: BorderRadius.circular(15),
+            child: Image.asset(
+              widget.image,
+              fit: BoxFit.cover,
+              width: 100,
+            ),
+          ),
+          if (!widget.showMore)
             Text(
-              widget.exerciseTitle,
-              style: TextStyle(
-                fontSize: 18,
-                fontWeight:FontWeight.bold,
+              "${widget.noOfMinutes} minutes",
+              style: const TextStyle(
+                fontSize: 15,
+                color: Colors.grey,
               ),
             ),
-            SizedBox(
-              height: 10,
-            ),
-            Image.asset(
-              widget.exerciseImageUrl,
-            width: 100,
-            fit: BoxFit.cover,
-            ),
-            SizedBox(
-              height: 10,
-            ),
-            Text(
-              "${widget.noOfMinutes.toString()} Minuites",
+          const SizedBox(
+            height: 5,
+          ),
+          if (widget.showMore)
+            const Text(
+              "see more",
               style: TextStyle(
-                fontSize: 16,
-                color: kSubtitleColor,
+                fontSize: 15,
+                color: kGradientBottomColor,
               ),
             ),
-            SizedBox(
+          const SizedBox(
             height: 10,
           ),
           Padding(
-            padding: const EdgeInsets.symmetric(
-              vertical: 10,
-              horizontal: 8),
+            padding: const EdgeInsets.all(8.0),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
@@ -88,19 +100,19 @@ class _AddExerciseCardState extends State<AddExerciseCard> {
                   width: 60,
                   height: 60,
                   decoration: BoxDecoration(
+                    color: kCardButtonColor,
                     borderRadius: BorderRadius.circular(15),
-                    color: kSubtitleColor.withOpacity(0.5),
                   ),
                   child: Center(
                     child: IconButton(
+                      icon: Icon(
+                        widget.isAdded ? Icons.remove : Icons.add,
+                        size: 30,
+                        color: kGradientBottomColor,
+                      ),
                       onPressed: () {
                         widget.toggleAddExercise();
                       },
-                      icon: Icon(
-                        widget.isadded ? Icons.remove : Icons.add,
-                        size: 30,
-                        color: kMainDarkBlueColor,
-                      ),
                     ),
                   ),
                 ),
@@ -108,27 +120,27 @@ class _AddExerciseCardState extends State<AddExerciseCard> {
                   width: 60,
                   height: 60,
                   decoration: BoxDecoration(
+                    color: kCardButtonColor,
                     borderRadius: BorderRadius.circular(15),
-                    color: kSubtitleColor.withOpacity(0.5),
                   ),
                   child: Center(
                     child: IconButton(
-                      onPressed: () {
-                        widget.toggleAddFavExercise();
-                      },
                       icon: Icon(
-                        widget.isFavourtied ? Icons.favorite : Icons.favorite_border,
-                        size: 30,
-                        color: kMainPinkColor,
+                        widget.isFavorite
+                            ? Icons.favorite_sharp
+                            : Icons.favorite_border,
+                        color: Colors.pink,
                       ),
+                      onPressed: () {
+                        widget.toggleAddFavoriteExercise();
+                      },
                     ),
                   ),
                 ),
               ],
             ),
           )
-          ],
-        ),
+        ],
       ),
     );
   }

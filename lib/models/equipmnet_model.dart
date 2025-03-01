@@ -3,19 +3,17 @@ class Equipment {
   final String equipmentName;
   final String equipmentDescription;
   final String equipmentImageUrl;
-  final int noOfMinutes;
+  final int noOfMinuites;
   final double noOfCalories;
-  final bool handOvered;
+  bool handOvered;
 
   Equipment({
-    required this.id, 
-    required this.equipmentName, 
-    required this.equipmentDescription, 
-    required this.equipmentImageUrl, 
-    required this.noOfMinutes, 
-    required this.noOfCalories, 
-    required this.handOvered, 
-  
+    required this.id,
+    required this.equipmentName,
+    required this.equipmentDescription,
+    required this.equipmentImageUrl,
+    required this.noOfMinuites,
+    required this.noOfCalories,
+    required this.handOvered,
   });
-
 }

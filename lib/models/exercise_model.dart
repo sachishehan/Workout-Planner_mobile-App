@@ -2,17 +2,14 @@ class Exercise {
   final int id;
   final String exerciseName;
   final String exerciseImageUrl;
-  final int noOfMinutes;
-  final bool completed;
-
-
+  final int noOfMinuites;
+  bool completed;
 
   Exercise({
-     required this.id,
-     required this.exerciseName,
-     required this.exerciseImageUrl,
-     required this.noOfMinutes,
-     required this.completed,
-  }
-  );
+    required this.exerciseName,
+    required this.exerciseImageUrl,
+    required this.noOfMinuites,
+    required this.id,
+    required this.completed,
+  });
 }
