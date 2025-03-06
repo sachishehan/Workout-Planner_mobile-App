@@ -103,7 +103,7 @@ class _HomepageState extends State<Homepage> {
                       },
                       child: const ExerciseCard(
                         title: "Running",
-                        image: "assets/images/exercises/cobra.png",
+                        image: "assests/images/exercises/cobra.png",
                         noOfMinutes: "30",
                         showMore: true,
                       ),
