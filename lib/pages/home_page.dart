@@ -127,7 +127,7 @@ class _HomepageState extends State<Homepage> {
                       child: const ExerciseCard(
                         title: "Warmup",
                         image:
-                            "assets/images/exercises/treadmill-machine_men.png",
+                            "assests/images/exercises/treadmill-machine_men.png",
                         noOfMinutes: "30",
                         showMore: true,
                       ),
@@ -156,7 +156,7 @@ class _HomepageState extends State<Homepage> {
                       },
                       child: const ExerciseCard(
                         title: "Equipment",
-                        image: "assets/images/exercises/downward-facing.png",
+                        image: "assests/images/exercises/downward-facing.png",
                         noOfMinutes: "30",
                         showMore: true,
                       ),
@@ -179,7 +179,7 @@ class _HomepageState extends State<Homepage> {
                       },
                       child: const ExerciseCard(
                         title: "Exercise",
-                        image: "assets/images/exercises/dragging.png",
+                        image: "assests/images/exercises/dragging.png",
                         noOfMinutes: "30",
                         showMore: true,
                       ),
