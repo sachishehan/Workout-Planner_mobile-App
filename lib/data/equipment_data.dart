@@ -7,7 +7,7 @@ class EquipmentData {
       equipmentName: "Dumbbells",
       equipmentDescription:
           "A pair of dumbbells for strength training exercises.",
-      equipmentImageUrl: "assets/images/equipments/calendar.png",
+      equipmentImageUrl: "assests/images/equipments/calendar.png",
       noOfMinuites: 30,
       noOfCalories: 2,
       handOvered: false,
@@ -16,7 +16,7 @@ class EquipmentData {
       id: 1,
       equipmentName: "Resistance Bands",
       equipmentDescription: "Elastic bands used for resistance exercises.",
-      equipmentImageUrl: "assets/images/equipments/checklist.png",
+      equipmentImageUrl: "assests/images/equipments/checklist.png",
       noOfMinuites: 20,
       handOvered: false,
       noOfCalories: 15,
@@ -25,7 +25,7 @@ class EquipmentData {
       id: 2,
       equipmentName: "Yoga Mat",
       equipmentDescription: "A mat for practicing yoga and floor exercises.",
-      equipmentImageUrl: "assets/images/equipments/dumbbell.png",
+      equipmentImageUrl: "assests/images/equipments/dumbbell.png",
       noOfMinuites: 60,
       handOvered: false,
       noOfCalories: 30,
@@ -35,7 +35,7 @@ class EquipmentData {
       equipmentName: "Jump Rope",
       equipmentDescription:
           "A rope used for cardiovascular exercises and coordination training.",
-      equipmentImageUrl: "assets/images/equipments/dumbbells.png",
+      equipmentImageUrl: "assests/images/equipments/dumbbells.png",
       noOfMinuites: 15,
       handOvered: false,
       noOfCalories: 12,
@@ -45,7 +45,7 @@ class EquipmentData {
       equipmentName: "Kettlebells",
       equipmentDescription:
           "Weights with a handle used for strength, endurance, and flexibility training.",
-      equipmentImageUrl: "assets/images/equipments/facial-roller.png",
+      equipmentImageUrl: "assests/images/equipments/facial-roller.png",
       noOfMinuites: 45,
       handOvered: false,
       noOfCalories: 25,
@@ -55,7 +55,7 @@ class EquipmentData {
       equipmentName: "Exercise Ball",
       equipmentDescription:
           "A large, inflatable ball used for core and stability exercises.",
-      equipmentImageUrl: "assets/images/equipments/stationary-bike.png",
+      equipmentImageUrl: "assests/images/equipments/stationary-bike.png",
       noOfMinuites: 25,
       handOvered: false,
       noOfCalories: 15,
@@ -65,7 +65,7 @@ class EquipmentData {
       equipmentName: "Pull-up Bar",
       equipmentDescription:
           "A bar mounted to a wall or doorframe for upper body strength exercises.",
-      equipmentImageUrl: "assets/images/equipments/treadmill.png",
+      equipmentImageUrl: "assests/images/equipments/treadmill.png",
       noOfMinuites: 40,
       handOvered: false,
       noOfCalories: 20,
@@ -75,7 +75,7 @@ class EquipmentData {
       equipmentName: "Medicine Ball",
       equipmentDescription:
           "A heavy ball used for strength and coordination exercises.",
-      equipmentImageUrl: "assets/images/equipments/facial-roller.png",
+      equipmentImageUrl: "assests/images/equipments/facial-roller.png",
       noOfMinuites: 35,
       handOvered: false,
       noOfCalories: 18,
@@ -85,7 +85,7 @@ class EquipmentData {
       equipmentName: "Bench",
       equipmentDescription:
           "A stable surface for various strength training exercises.",
-      equipmentImageUrl: "assets/images/equipments/dumbbells.png",
+      equipmentImageUrl: "assests/images/equipments/dumbbells.png",
       noOfMinuites: 55,
       handOvered: false,
       noOfCalories: 28,
@@ -95,7 +95,7 @@ class EquipmentData {
       equipmentName: "Barbell",
       equipmentDescription:
           "A long metal bar with weights attached to each end, used for resistance training.",
-      equipmentImageUrl: "assets/images/equipments/skipping-rope.png",
+      equipmentImageUrl: "assests/images/equipments/skipping-rope.png",
       noOfMinuites: 50,
       handOvered: false,
       noOfCalories: 27,
